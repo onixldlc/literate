@@ -1,6 +1,6 @@
 #pragma once
 
-##ifdef __i386__
+#ifdef __i386__
 #define AK_ARCH_I386 1
 #endif
 

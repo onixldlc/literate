@@ -1,17 +1,37 @@
 #pragma once
-#include <AK/types.h>
+
+#include <AK/Types.h>
 
 namespace Kernel::RPi {
-  class Framebuffer {
-    public:
-      enum close PixelOrder {
-        RGB,
-        BGR,
-      };
+class Framebuffer {
+public:
+  enum class PixelOrder {
+    RGB,
+    BGR,
+  };
 
-      static Framebuffer& the();
+  static Framebuffer& the();
 
-      bool initialized() const { return m_initialized; }
-      ui16 width() const { return m_width; }
-  }
+  bool initialized() const { return m_initialized; }
+  u16 width() const { return m_width; }
+  u16 height() const { return m_height; }
+  u8 depth() const { return m_depth; }
+  u8* gpu_buffer() const { return m_gpu_buffer; }
+  u32 buffer_size() const { return m_buffer_size; }
+  u32 pitch() const { return m_pitch; }
+  PixelOrder pixel_order() { return m_pixel_order; }
+
+private:
+  u16 m_width;
+  u16 m_height;
+  u8 m_depth;
+  u8* m_gpu_buffer;
+  u32 m_buffer_size;
+  u32 m_pitch;
+  bool m_initialized;
+  PixelOrder m_pixel_order;
+
+  Framebuffer();
+};
+
 }
