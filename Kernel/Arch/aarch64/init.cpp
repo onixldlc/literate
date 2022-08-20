@@ -150,7 +150,7 @@ static void draw_logo() {
     dbgln("Failed to parse boot logo.");
     return;
   }
-  dbgln("Boot logo size: {} ({} x {})", serenity_boot_logo_size, logo_parser.image.width, logo_parser.image.height);
+  dbgln("Boot logo size: {} ({} x {})", literate_boot_logo_size, logo_parser.image.width, logo_parser.image.height);
 
   auto& framebuffer = RPi::Framebuffer::the();
   auto fb_ptr = framebuffer.gpu_buffer();
