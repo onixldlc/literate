@@ -10,7 +10,7 @@
 #    include <math.h>
 #endif
 
-#ifdef __serenity__
+#ifdef __literate__
 extern "C" size_t strlen(char const*);
 #else
 #    include <string.h>
